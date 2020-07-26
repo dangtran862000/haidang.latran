@@ -236,20 +236,26 @@ def draw_UKflag(x,y,length): #600
             UKflag_layer2.backward(300/2)
             UKflag_layer2.down()
         UKflag_layer2.end_fill()
-def draw_star_flag(size):
-    Star.right(180-154.25+12.875)
-    Star.up()
-    Star.backward(size/2)
-    Star.down()
+
+
+def draw_star_7_side(size):
     Star.begin_fill()
     Star.color("white", "white")
     Star.fillcolor("white")
-    Star.left(12.875)
+    Star.left(90)
+    Star.up()
+    Star.forward(size)
+    Star.down()
+
+    Star.right(166)
     for i in range(7):
         Star.forward(size)
-        Star.right(154.25)
+        Star.left(101.25)
+        Star.forward(size)
+        Star.right(152.70)
+    Star.right(180 - 153)
     Star.end_fill()
-    Star.right(180 - 154.25)
+
 
 def draw_AUSflag(x,y):
     AUSflag.goto(x - 300, y + 150)
@@ -264,32 +270,32 @@ def draw_AUSflag(x,y):
     AUSflag.end_fill()
     draw_UKflag(x, y,300)
     Star.up()
-    Star.goto(x - 150, y - 75)
+    Star.goto(x - 150, y - 60)
     Star.down()
-    draw_star_flag(75)
+    draw_star_7_side(30)
 
     Star.up()
-    Star.goto(x+150, y + 100)
+    Star.goto(x + 150, y + 100)
     Star.down()
-    draw_star_flag(300/8)
+    draw_star_7_side(15)
 
     Star.up()
-    Star.goto(x + 150, y - 100)
+    Star.goto(x + 145, y - 100)
     Star.down()
-    draw_star_flag(300 / 8)
+    draw_star_7_side(15)
 
     Star.up()
     Star.goto(x + 75, y + 45/2)
     Star.down()
-    draw_star_flag(300 / 8)
+    draw_star_7_side(15)
 
     Star.up()
-    Star.goto(x + 450/2, y + 75/2)
+    Star.goto(x + 225, y + 75/2)
     Star.down()
-    draw_star_flag(300 / 8)
+    draw_star_7_side(15)
 
     Star5.up()
-    Star5.goto(x + 400/2, y - 5)
+    Star5.goto(x + 180.5, y-10)
     Star5.down()
     Star5.begin_fill()
     Star5.color("white", "white")
