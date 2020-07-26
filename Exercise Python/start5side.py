@@ -12,12 +12,12 @@ Star.up()
 Star.forward(120)
 Star.down()
 
-Star.right(162)
-for i in range(5):
+Star.right(166)
+for i in range(7):
     Star.forward(120)
-    Star.left(72)
+    Star.left(101.25)
     Star.forward(120)
-    Star.right(144)
+    Star.right(152.70)
 
 Star.end_fill()
 window.exitonclick()
