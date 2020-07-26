@@ -320,19 +320,15 @@ def input_info():
 input_info()
 n = input("Enter an option: ")
 
-def check_draw():
-    if n == 1:
-        draw_UKflag(300, -150, 600)
-    elif n == 2:
-        draw_AUSflag(0, 0)
-    elif n == 3:
-        exit()
-
-while (n != 1) and (n != 2) and (n != 3):
+if n==str():
+    print("ERROR")
+while (n != 1) and (n != 2) and (n != 3) and n!=int():
     input_info()
-    n = input("Enter an option: ")
-    check_draw()
-
-check_draw()
-
+    n = int(input("Enter an option: "))
+if n == 1:
+    draw_UKflag(300, -150, 600)
+elif n == 2:
+    draw_AUSflag(0, 0)
+elif n == 3:
+    exit()
 window.exitonclick()
