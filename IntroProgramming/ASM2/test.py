@@ -1,7 +1,7 @@
 import turtle
-UKflag=turtle.Turtle()
-UKflag_layer2=turtle.Turtle()
-AUSflag=turtle.Turtle()
+UKflag = turtle.Turtle()
+UKflag_layer2 = turtle.Turtle()
+AUSflag = turtle.Turtle()
 Star = turtle.Turtle()
 Star5 = turtle.Turtle()
 window = turtle.Screen()
@@ -12,12 +12,11 @@ AUSflag.hideturtle()
 Star.hideturtle()
 Star5.hideturtle()
 
-x=0
-y=0
+x = 0
+y = 0
 
-n=int(input("input n: "))
 
-def draw_UKflag(x,y,length): #600
+def draw_UKflag (x, y, length):
     UKflag.begin_fill()
     UKflag.color("darkblue", "darkblue")
     UKflag.fillcolor("darkblue")
@@ -36,13 +35,13 @@ def draw_UKflag(x,y,length): #600
     UKflag.fillcolor("white")
     UKflag.up()
     UKflag.left(63.50)
-    if length<600:
+    if length < 600:
         UKflag.forward(length+35)
     else:
         UKflag.forward(length + 70)
     UKflag.down()
     UKflag.left(180 - 63.50)
-    if length<600:
+    if length < 600:
         UKflag.forward((length/20)+1)
     else:
         UKflag.forward((length/20))
@@ -82,9 +81,9 @@ def draw_UKflag(x,y,length): #600
     UKflag.forward(length/20)
     UKflag.end_fill()
 
-    if length==600:
+    if length == 600:
         UKflag_layer2.up()
-        UKflag_layer2.goto(x-300,y+150)
+        UKflag_layer2.goto(x-300, y+150)
         UKflag_layer2.right(90)
         UKflag_layer2.forward(150)
         UKflag_layer2.down()
@@ -127,7 +126,6 @@ def draw_UKflag(x,y,length): #600
             UKflag_layer2.forward(30)
         UKflag_layer2.end_fill()
 
-
         UKflag_layer2.up()
         UKflag_layer2.forward(300)
         UKflag_layer2.down()
@@ -158,7 +156,7 @@ def draw_UKflag(x,y,length): #600
             UKflag_layer2.forward(20)
             UKflag_layer2.end_fill()
             UKflag_layer2.backward(300)
-    elif length==300:
+    elif length == 300:
         UKflag_layer2.up()
         UKflag_layer2.goto(x - 150, y + 75)
         UKflag_layer2.right(90)
@@ -268,7 +266,7 @@ def draw_AUSflag(x,y):
         AUSflag.forward(600)
         AUSflag.left(90)
     AUSflag.end_fill()
-    draw_UKflag(x, y,300)
+    draw_UKflag(x, y, 300)
     Star.up()
     Star.goto(x - 150, y - 60)
     Star.down()
@@ -294,23 +292,47 @@ def draw_AUSflag(x,y):
     Star.down()
     draw_star_7_side(15)
 
+# small star 5 sides
     Star5.up()
     Star5.goto(x + 180.5, y-10)
     Star5.down()
     Star5.begin_fill()
     Star5.color("white", "white")
     Star5.fillcolor("white")
+    Star5.left(90)
     Star5.up()
-    Star5.backward(10)
+    Star5.forward(10)
     Star5.down()
-
+    Star5.right(162)
     for i in range(5):
-        Star5.forward(20)
+        Star5.forward(10)
+        Star5.left(72)
+        Star5.forward(10)
         Star5.right(144)
     Star5.end_fill()
 
-if n==1:
-    draw_UKflag(300,-150,600)
-elif n==2:
-    draw_AUSflag(0,0)
+def input_info():
+    print("***************************")
+    print("1. Draw UK flag")
+    print("2. Draw Australia flag")
+    print("3. Exit")
+    print("***************************")
+input_info()
+n = input("Enter an option: ")
+
+def check_draw():
+    if n == 1:
+        draw_UKflag(300, -150, 600)
+    elif n == 2:
+        draw_AUSflag(0, 0)
+    elif n == 3:
+        exit()
+
+while (n != 1) and (n != 2) and (n != 3):
+    input_info()
+    n = input("Enter an option: ")
+    check_draw()
+
+check_draw()
+
 window.exitonclick()

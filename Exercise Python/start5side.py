@@ -13,12 +13,12 @@ def draw_star_7_side(size):
     Star.forward(size)
     Star.down()
 
-    Star.right(166)
-    for i in range(7):
+    Star.right(162)
+    for i in range(5):
         Star.forward(size)
-        Star.left(101.25)
+        Star.left(72)
         Star.forward(size)
-        Star.right(152.70)
+        Star.right(144)
 
 draw_star_7_side(40)
 Star.end_fill()
