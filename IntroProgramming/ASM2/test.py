@@ -316,19 +316,19 @@ def input_info():
     print("1. Draw UK flag")
     print("2. Draw Australia flag")
     print("3. Exit")
-    print("***************************")
 input_info()
-n = input("Enter an option: ")
+n = input("Enter an option (1/2/3): ")
 
-if n==str():
-    print("ERROR")
-while (n != 1) and (n != 2) and (n != 3) and n!=int():
+
+while (n != "1") and (n != "2") and (n != "3"):
+    print("Invalid option")
     input_info()
-    n = int(input("Enter an option: "))
-if n == 1:
+    n = input("Enter an option (1/2/3): ")
+if n == "1":
     draw_UKflag(300, -150, 600)
-elif n == 2:
+elif n == "2":
     draw_AUSflag(0, 0)
-elif n == 3:
+elif n == "3":
+    print("Program exits. Have a nice day!")
     exit()
 window.exitonclick()
