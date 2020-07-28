@@ -1,7 +1,7 @@
 import turtle
 import random
 pieChart = turtle.Turtle()
-
+writeNum = turtle.Turtle()
 window = turtle.Screen()
 # creating an empty list
 listNumber = []
