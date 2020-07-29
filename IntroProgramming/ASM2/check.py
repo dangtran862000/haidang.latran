@@ -25,7 +25,7 @@ for i in listPhanTram:
 
 color=["red","green","blue","pink","purple","grey","darkred",
        "darkblue","darkgreen","darkgrey","lightgrey","cyan","magenta","violet",
-       "navy","coral","maroon","orange","darkseagreen","steelblue","tan","seagreen"]
+       "navy","coral","maroon","orange","darkseagreen","steelblue","tan","seagreen","rosybrown"]
 
 pieChart.pensize(2)
 pieChart.goto(0,200)
