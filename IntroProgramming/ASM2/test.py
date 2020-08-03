@@ -1,85 +1,109 @@
 import turtle
-UKflag = turtle.Turtle()
+
+# create the Turtles
+UKflag_layer1 = turtle.Turtle()
 UKflag_layer2 = turtle.Turtle()
 AUSflag = turtle.Turtle()
 Star = turtle.Turtle()
 Star5 = turtle.Turtle()
 window = turtle.Screen()
 
-UKflag.hideturtle()
+# Hiding the Turtle icon
+UKflag_layer1.hideturtle()
 UKflag_layer2.hideturtle()
 AUSflag.hideturtle()
 Star.hideturtle()
 Star5.hideturtle()
 
-x = 0
-y = 0
+
+''' create the function to draw the UK Flag (draw_UKflag)
+ I divide the UK flag to 2 layers:
+    Layer 1 (UKflag_layer1): The darkblue background and 2 white diagonal lines 
+    Layer 2 (UKflag_layer2): The red cross line; white cross line; and 4 red small pieces
+'''
 
 
-def draw_UKflag (x, y, length):
-    UKflag.begin_fill()
-    UKflag.color("darkblue", "darkblue")
-    UKflag.fillcolor("darkblue")
-    UKflag.up()
-    UKflag.goto(x,y)
-    UKflag.down()
-    UKflag.left(90)
+def draw_UKflag(x, y, length):
+    # the function draw_UKflag with (x,y is the starting position of Turtle) and the length of the flag
+    # starting draw the background of the UK flag
+    UKflag_layer1.begin_fill()
+    UKflag_layer1.color("darkblue", "darkblue")    # fill the color of the flag background
+    UKflag_layer1.fillcolor("darkblue")
+    UKflag_layer1.up()
+    UKflag_layer1.goto(x, y)   # starting position
+    UKflag_layer1.down()
+    UKflag_layer1.left(90)
+    # drawing the rectangle of the the flag with the length and the height = length/2
     for i in range(2):
-        UKflag.forward(length/2)
-        UKflag.left(90)
-        UKflag.forward(length)
-        UKflag.left(90)
-    UKflag.end_fill()
-    UKflag.begin_fill()
-    UKflag.color("white", "white")
-    UKflag.fillcolor("white")
-    UKflag.up()
-    UKflag.left(63.50)
-    if length < 600:
-        UKflag.forward(length+35)
-    else:
-        UKflag.forward(length + 70)
-    UKflag.down()
-    UKflag.left(180 - 63.50)
-    if length < 600:
-        UKflag.forward((length/20)+1)
-    else:
-        UKflag.forward((length/20))
-    UKflag.left(63.50)
-    UKflag.forward(length+2)
-    UKflag.left(26.50)
-    UKflag.forward((length/10)+1)
-    UKflag.left(90)
-    UKflag.forward(length/20)
-    UKflag.left(63.50)
-    UKflag.forward(length+5)
-    UKflag.left(26.50)
-    UKflag.forward((length/10)+1)
-    UKflag.end_fill()
+        UKflag_layer1.forward(length/2)
+        UKflag_layer1.left(90)
+        UKflag_layer1.forward(length)
+        UKflag_layer1.left(90)
+    # starting drawing 2 white diagonal lines
+    UKflag_layer1.end_fill()
+    UKflag_layer1.begin_fill()
+    UKflag_layer1.color("white", "white")
+    UKflag_layer1.fillcolor("white")
+    UKflag_layer1.up()
+    UKflag_layer1.left(63.50)
 
-    UKflag.up()
-    UKflag.backward(length)
-    UKflag.left(26.6)
-    if length < 600:
-        UKflag.forward(length + 35.25)
+    '''Next step to check the if the length of the flag = 300 then draw the diagonal lines = length + 35
+            and if the length of the flag = 600 then draw the diagonal lines = length + 70
+       This step to prepare for drawing AUS flag which contain the small UK flag (the size of a quarter)
+            at the left up corner
+    '''
+    if length == 300:
+        UKflag_layer1.forward(length+35)
     else:
-        UKflag.forward(length + 70)
-    UKflag.down()
-    UKflag.begin_fill()
-    UKflag.fillcolor("white")
-    UKflag.left(180 - 26.50)
-    UKflag.forward(length/10)
-    UKflag.left(26.50)
-    UKflag.forward(length+5)
-    UKflag.left(63.50)
-    UKflag.forward((length/20)-1)
-    UKflag.left(90)
-    UKflag.forward(length/10)
-    UKflag.left(26.50)
-    UKflag.forward(length+3.31)
-    UKflag.left(63.50)
-    UKflag.forward(length/20)
-    UKflag.end_fill()
+        UKflag_layer1.forward(length+70)
+    UKflag_layer1.down()
+    UKflag_layer1.left(180 - 63.50)
+    if length < 600:
+        UKflag_layer1.forward((length/20)+1)
+    else:
+        UKflag_layer1.forward((length/20)+1)
+    UKflag_layer1.left(63.50)
+    UKflag_layer1.forward(length+2)
+    UKflag_layer1.left(26.50)
+    UKflag_layer1.forward((length/10)+1)
+    UKflag_layer1.left(90)
+    UKflag_layer1.forward(length/20)
+    UKflag_layer1.left(63.50)
+    UKflag_layer1.forward(length+5)
+    UKflag_layer1.left(26.50)
+    UKflag_layer1.forward((length/10)+1)
+    UKflag_layer1.end_fill()
+
+    UKflag_layer1.up()
+    UKflag_layer1.backward(length)
+    UKflag_layer1.left(26.6)
+    if length < 600:
+        UKflag_layer1.forward(length + 35.25)
+    else:
+        UKflag_layer1.forward(length + 70)
+    UKflag_layer1.down()
+    UKflag_layer1.begin_fill()
+    UKflag_layer1.fillcolor("white")
+    UKflag_layer1.left(180 - 26.50)
+    UKflag_layer1.forward(length/10)
+    UKflag_layer1.left(26.50)
+    UKflag_layer1.forward(length+5)
+    UKflag_layer1.left(63.50)
+    UKflag_layer1.forward((length/20)-1)
+    UKflag_layer1.left(90)
+    UKflag_layer1.forward(length/10)
+    UKflag_layer1.left(26.50)
+    UKflag_layer1.forward(length+3.31)
+    UKflag_layer1.left(63.50)
+    UKflag_layer1.forward(length/20)
+    UKflag_layer1.end_fill()
+
+    '''
+       This step to prepare for drawing AUS flag which contain the small UK flag (the size of a quarter)
+            at the left up corner
+       Next step to check the if the length of the flag = 600 draw the red cross line and white cross line
+            and if the length of the flag = 600 then draw the diagonal lines = length + 70
+    '''
 
     if length == 600:
         UKflag_layer2.up()
@@ -255,7 +279,7 @@ def draw_star_7_side(size):
     Star.end_fill()
 
 
-def draw_AUSflag(x,y):
+def draw_AUSflag(x, y, length):
     AUSflag.goto(x - 300, y + 150)
     AUSflag.right(90)
     AUSflag.begin_fill()
@@ -267,6 +291,18 @@ def draw_AUSflag(x,y):
         AUSflag.left(90)
     AUSflag.end_fill()
     draw_UKflag(x, y, 300)
+
+    AUSflag.up()
+    AUSflag.goto(x+300, y-150)
+    AUSflag.down()
+    AUSflag.color("white")
+    AUSflag.left(180)
+    for i in range(2):
+        AUSflag.forward(length / 2)
+        AUSflag.left(90)
+        AUSflag.forward(length)
+        AUSflag.left(90)
+
     Star.up()
     Star.goto(x - 150, y - 60)
     Star.down()
@@ -311,11 +347,14 @@ def draw_AUSflag(x,y):
         Star5.right(144)
     Star5.end_fill()
 
+
 def input_info():
     print("***************************")
     print("1. Draw UK flag")
     print("2. Draw Australia flag")
     print("3. Exit")
+
+
 input_info()
 n = input("Enter an option (1/2/3): ")
 
@@ -327,7 +366,7 @@ while (n != "1") and (n != "2") and (n != "3"):
 if n == "1":
     draw_UKflag(300, -150, 600)
 elif n == "2":
-    draw_AUSflag(0, 0)
+    draw_AUSflag(0, 0, 600)
 elif n == "3":
     print("Program exits. Have a nice day!")
     exit()

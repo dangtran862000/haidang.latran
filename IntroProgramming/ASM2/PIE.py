@@ -1,36 +1,40 @@
 import turtle
+
 import random
 pieChart = turtle.Turtle()
 
 window = turtle.Screen()
 # creating an empty list
 listNumber = []
-listAngle=[]
-listPhanTram=[]
+listAngle = []
+listPercentage = []
 n = int(input("Enter number of elements : "))
-sum=0
+
+Sum = 0
 
 for i in range(0, n):
     element = float(input())
-    sum = sum + element
+    Sum = Sum + element
     listNumber.append(element)  # adding the element
 
 for i in listNumber:
-    phanTram=round(((i/sum)*100),1)
-    listPhanTram.append(phanTram)
+    Percentage = round(((i/Sum)*100), 1)
+    listPercentage.append(Percentage)
 
-for i in listPhanTram:
+for i in listPercentage:
     angle = round(((i * 360) / 100), 1)
     listAngle.append(angle)
 
-color=["red","green","blue","pink","purple","grey","darkred",
-       "darkblue","darkgreen","darkgrey","lightgrey","cyan","magenta","violet",
-       "navy","coral","maroon","orange","darkseagreen","steelblue","tan","seagreen","rosybrown"]
+color = ["red", "green", "blue", "pink", "purple", "grey", "darkred", "darkblue", "darkgreen",
+         "darkgrey", "lightgrey", "cyan", "magenta", "violet", "navy",
+         "coral", "maroon", "orange", "darkseagreen", "steelblue", "tan", "seagreen", "rosybrown"]
 
 pieChart.pensize(2)
-pieChart.goto(0,200)
+pieChart.goto(0, 200)
+
+
 def draw_piechart(angle):
-    PT=round(((angle*100)/360),1)
+    PT = round(((angle*100)/360), 1)
     pieChart.begin_fill()
     pieChart.fillcolor(random.choice(color))
     pieChart.circle(-200, angle)
@@ -40,8 +44,8 @@ def draw_piechart(angle):
     pieChart.forward(150)
     pieChart.down()
     pieChart.color("white")
-    pieChart.write(  PT, font=("bold",12),align="right")
-    pieChart.write("%",font=("bold",12),align="left")
+    pieChart.write(  PT, font=("bold", 12), align="right")
+    pieChart.write("%",font=("bold", 12), align="left")
     pieChart.up()
     pieChart.backward(150)
     pieChart.down()
