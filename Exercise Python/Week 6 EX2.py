@@ -12,7 +12,7 @@ def mutiple(n):
         print()
 
 
-n = 15
+n = 12
 for i in range(0, n+1):
     b = str(i)
     print(b.rjust(5), end="")
