@@ -61,7 +61,7 @@ def draw_UKflag(x, y, length):
     if length < 600:
         UKflag_layer1.forward((length/20)+1)
     else:
-        UKflag_layer1.forward((length/20)+1)
+        UKflag_layer1.forward((length/20))
     UKflag_layer1.left(63.50)
     UKflag_layer1.forward(length+2)
     UKflag_layer1.left(26.50)

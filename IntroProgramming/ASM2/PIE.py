@@ -17,6 +17,8 @@ for i in range(0, n):
     Sum = Sum + element
     listNumber.append(element)  # adding the element
 
+print("This is full of element")
+
 for i in listNumber:
     Percentage = round(((i/Sum)*100), 1)
     listPercentage.append(Percentage)
@@ -25,7 +27,7 @@ for i in listPercentage:
     angle = round(((i * 360) / 100), 1)
     listAngle.append(angle)
 
-color = ["red", "green", "blue", "pink", "purple", "grey", "darkred", "darkblue", "darkgreen",
+color = ["red", "green", "blue", "pink", "purple", "grey", "darkred", "darkblue",
          "darkgrey", "lightgrey", "cyan", "magenta", "violet", "navy",
          "coral", "maroon", "orange", "darkseagreen", "steelblue", "tan", "seagreen", "rosybrown"]
 
@@ -36,7 +38,8 @@ pieChart.goto(0, 200)
 def draw_piechart(angle):
     PT = round(((angle*100)/360), 1)
     pieChart.begin_fill()
-    pieChart.fillcolor(random.choice(color))
+    for i in color:
+        pieChart.fillcolor(i)
     pieChart.circle(-200, angle)
     pieChart.goto(0, 0)
     pieChart.left(90+angle/2)
@@ -44,8 +47,8 @@ def draw_piechart(angle):
     pieChart.forward(150)
     pieChart.down()
     pieChart.color("white")
-    pieChart.write(  PT, font=("bold", 12), align="right")
-    pieChart.write("%",font=("bold", 12), align="left")
+    pieChart.write(PT, font=('Arial', 12, 'normal'), align="right")
+    pieChart.write("%", font=('Arial', 12, 'normal'), align="left", )
     pieChart.up()
     pieChart.backward(150)
     pieChart.down()
