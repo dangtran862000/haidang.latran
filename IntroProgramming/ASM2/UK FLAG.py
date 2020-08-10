@@ -1,271 +1,274 @@
-import turtle
+# RMIT University Vietnam
+# Course: COSC2429 Introduction to Programming
+# Semester: 2020B
+# Assignment: 1
+# Author: La Tran Hai Dang (s3836605)
+# Created date: dd/mm/yyyy
+# Last modified date: dd/mm/yyyy
 
-# create the Turtles
-UKflag_layer1 = turtle.Turtle()
-UKflag_layer2 = turtle.Turtle()
-AUSflag = turtle.Turtle()
-Star = turtle.Turtle()
-Star5 = turtle.Turtle()
+import turtle
 window = turtle.Screen()
 
-# Hiding the Turtle icon
-UKflag_layer1.hideturtle()
-UKflag_layer2.hideturtle()
-AUSflag.hideturtle()
-Star.hideturtle()
-Star5.hideturtle()
-
-
-''' create the function to draw the UK Flag (draw_UKflag)
+# creating the Turtles
+uk_flag_layer1 = turtle.Turtle()
+uk_flag_layer2 = turtle.Turtle()
+aus_flag = turtle.Turtle()
+star_7_sides = turtle.Turtle()
+star_5_sides = turtle.Turtle()
+'''
+# setting the speed of the Turtles
+uk_flag_layer1.speed(0)
+uk_flag_layer2.speed(0)
+aus_flag.speed(0)
+star_7_sides.speed(0)
+star_5_sides.speed(0)
+'''
+'''
+# Hiding the Turtles icon
+uk_flag_layer1.hideturtle()
+uk_flag_layer2.hideturtle()
+aus_flag.hideturtle()
+star_7_sides.hideturtle()
+star_5_sides.hideturtle()
+'''
+''' create the function to draw the UK Flag (draw_uk_flag)
  I divide the UK flag to 2 layers:
-    Layer 1 (UKflag_layer1): The darkblue background and 2 white diagonal lines 
-    Layer 2 (UKflag_layer2): The red cross line; white cross line; and 4 red small pieces
+    Layer 1 (uk_flag_layer1): The darkblue background and 2 white diagonal lines 
+    Layer 2 (uk_flag_layer2): The red cross shape; white cross shape; and 4 red small diagonal pieces
 '''
 
-def draw_UKflag_layer2(x,y,length):
-    UKflag_layer2.up()
-    UKflag_layer2.goto(x - (length/2), y + (length/4))
-    UKflag_layer2.right(90)
-    UKflag_layer2.forward(length/4)
-    UKflag_layer2.down()
-    UKflag_layer2.right(90)
-    UKflag_layer2.begin_fill()
-    UKflag_layer2.color("white", "white")
-    UKflag_layer2.fillcolor("white")
+
+def draw_uk_flag_layer2(x, y, length):  # this is the function to draw the Layer 2 of the UK flag
+    uk_flag_layer2.up()
+    uk_flag_layer2.goto(x - (length/2), y + (length/4))  # setting the start position to draw the Layer 2
+    uk_flag_layer2.right(90)
+    uk_flag_layer2.forward((length/4))
+    uk_flag_layer2.down()
+    uk_flag_layer2.right(90)
+    # drawing the white cross line
+    uk_flag_layer2.begin_fill()
+    uk_flag_layer2.color("white", "white")
+    uk_flag_layer2.fillcolor("white")
+    for i in range(2):  # This loop used for shortening by being symmetrical across the axis of the white cross shape
+        uk_flag_layer2.forward(length/12)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/6)
+        uk_flag_layer2.left(90)
+        uk_flag_layer2.forward(length/2.4)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/6)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/2.4)
+        uk_flag_layer2.left(90)
+        uk_flag_layer2.forward(length/6)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/12)
+    uk_flag_layer2.end_fill()
+    # drawing the red cross line
+    uk_flag_layer2.begin_fill()
+    uk_flag_layer2.fillcolor("red")
+    for i in range(2):  # This loop used for shortening by being symmetrical across the axis of the red cross shape
+        uk_flag_layer2.forward(length/20)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/5)
+        uk_flag_layer2.left(90)
+        uk_flag_layer2.forward(length/(20/9))
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/10)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/(20/9))
+        uk_flag_layer2.left(90)
+        uk_flag_layer2.forward(length/5)
+        uk_flag_layer2.right(90)
+        uk_flag_layer2.forward(length/20)
+    uk_flag_layer2.end_fill()
+    # drawing 4 red cross diagonal pieces
+    uk_flag_layer2.up()
+    uk_flag_layer2.forward(length/2)
+    uk_flag_layer2.down()
+    uk_flag_layer2.right(90)
+    # This loop used for shortening to draw 4 red cross diagonal pieces
+    # by being symmetrical across the axis of the flag
     for i in range(2):
-        UKflag_layer2.forward(length/12)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/6)
-        UKflag_layer2.left(90)
-        UKflag_layer2.forward(length/2.4)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/6)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/2.4)
-        UKflag_layer2.left(90)
-        UKflag_layer2.forward(length/6)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/12)
-    UKflag_layer2.end_fill()
+        uk_flag_layer2.begin_fill()
+        uk_flag_layer2.fillcolor("red")
+        uk_flag_layer2.right(63.50)
+        uk_flag_layer2.forward(length/(8/3))
+        uk_flag_layer2.right(26.50)
+        uk_flag_layer2.forward(length/15)
+        uk_flag_layer2.right(180 - 26.50)
+        uk_flag_layer2.forward(length/(8/3))
+        uk_flag_layer2.right(26.50)
+        uk_flag_layer2.forward(length/15)
+        uk_flag_layer2.end_fill()
+        uk_flag_layer2.up()
+        uk_flag_layer2.backward(length)
+        uk_flag_layer2.down()
 
-    UKflag_layer2.begin_fill()
-    UKflag_layer2.fillcolor("red")
-    for i in range(2):
-        UKflag_layer2.forward(length/20)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/5)
-        UKflag_layer2.left(90)
-        UKflag_layer2.forward(length/(20/9))
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/10)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/(20/9))
-        UKflag_layer2.left(90)
-        UKflag_layer2.forward(length/5)
-        UKflag_layer2.right(90)
-        UKflag_layer2.forward(length/20)
-    UKflag_layer2.end_fill()
+        uk_flag_layer2.begin_fill()
+        uk_flag_layer2.fillcolor("red")
+        uk_flag_layer2.right(26.5)
+        uk_flag_layer2.forward(length/(8/3))
+        uk_flag_layer2.right(180 - 26.50)
+        uk_flag_layer2.forward(length/15)
+        uk_flag_layer2.right(26.5)
+        uk_flag_layer2.forward(length/(10/3))
+        uk_flag_layer2.right(63.5)
+        uk_flag_layer2.penup()
+        uk_flag_layer2.forward(length/30)
+        uk_flag_layer2.pendown()
+        uk_flag_layer2.end_fill()
+        uk_flag_layer2.up()
+        uk_flag_layer2.backward(length/2)
+        uk_flag_layer2.down()
 
-    UKflag_layer2.up()
-    UKflag_layer2.forward(length/2)
-    UKflag_layer2.down()
-    UKflag_layer2.right(90)
-    for i in range(2):
-        UKflag_layer2.begin_fill()
-        UKflag_layer2.fillcolor("red")
 
-        UKflag_layer2.right(63.50)
-        UKflag_layer2.forward(length/(8/3))
-        UKflag_layer2.right(26.50)
-        UKflag_layer2.forward(length/15)
-        UKflag_layer2.right(180 - 26.50)
-        UKflag_layer2.forward(length/(8/3))
-        UKflag_layer2.right(26.50)
-        UKflag_layer2.forward(length/15)
-        UKflag_layer2.end_fill()
-        UKflag_layer2.penup()
-        UKflag_layer2.backward(length)
-        UKflag_layer2.pendown()
-        UKflag_layer2.begin_fill()
-        UKflag_layer2.fillcolor("red")
-        UKflag_layer2.right(26.5)
-        UKflag_layer2.forward(length/(8/3))
-        UKflag_layer2.right(180 - 26.50)
-        UKflag_layer2.forward(length/15)
-        UKflag_layer2.right(26.5)
-        UKflag_layer2.forward(length/(10/3))
-        UKflag_layer2.right(63.5)
-        UKflag_layer2.penup()
-        UKflag_layer2.forward(length/30)
-        UKflag_layer2.pendown()
-        UKflag_layer2.end_fill()
-        UKflag_layer2.penup()
-        UKflag_layer2.backward(length/2)
-        UKflag_layer2.pendown()
-
-def draw_UKflag(x, y, length):
-    UKflag_layer1.begin_fill()
-    UKflag_layer1.color("darkblue", "darkblue")  # fill the color of the flag background
-    UKflag_layer1.fillcolor("darkblue")
-    UKflag_layer1.up()
-    UKflag_layer1.goto(x, y)  # starting position
-    UKflag_layer1.down()
-    UKflag_layer1.left(90)
+def draw_uk_flag(x, y, length):  # this is the function to draw full of the uk flag
+    uk_flag_layer1.begin_fill()
+    uk_flag_layer1.color("darkblue", "darkblue")  # fill the color of the flag background
+    uk_flag_layer1.fillcolor("darkblue")
+    uk_flag_layer1.up()
+    uk_flag_layer1.goto(x, y)  # starting position
+    uk_flag_layer1.down()
+    uk_flag_layer1.left(90)
     # drawing the rectangle of the the flag with the length and the height = length/2
     for i in range(2):
-        UKflag_layer1.forward(length / 2)
-        UKflag_layer1.left(90)
-        UKflag_layer1.forward(length)
-        UKflag_layer1.left(90)
+        uk_flag_layer1.forward(length / 2)
+        uk_flag_layer1.left(90)
+        uk_flag_layer1.forward(length)
+        uk_flag_layer1.left(90)
     # starting drawing 2 white diagonal lines
-    UKflag_layer1.end_fill()
-    UKflag_layer1.begin_fill()
-    UKflag_layer1.color("white", "white")
-    UKflag_layer1.fillcolor("white")
-    UKflag_layer1.up()
-    UKflag_layer1.left(63.50)
+    uk_flag_layer1.end_fill()
+    uk_flag_layer1.begin_fill()
+    uk_flag_layer1.color("white", "white")
+    uk_flag_layer1.fillcolor("white")
+    uk_flag_layer1.up()
+    uk_flag_layer1.left(63.50)
 
     '''Next step to check the if the length of the flag = 300 then draw the diagonal lines = length + 35
             and if the length of the flag = 600 then draw the diagonal lines = length + 70
        This step to prepare for drawing AUS flag which contain the small UK flag (the size of a quarter)
             at the left up corner
     '''
-    if length == 300:
-        UKflag_layer1.forward(length + 35)
-    else:
-        UKflag_layer1.forward(length + 70)
-    UKflag_layer1.down()
-    UKflag_layer1.left(180 - 63.50)
-    if length == 300:
-        UKflag_layer1.forward((length / 20) + 1)
-    else:
-        UKflag_layer1.forward((length / 20))
-    UKflag_layer1.left(63.50)
-    UKflag_layer1.forward(length + 2)
-    UKflag_layer1.left(26.50)
-    UKflag_layer1.forward((length / 10) + 1)
-    UKflag_layer1.left(90)
-    UKflag_layer1.forward(length / 20)
-    UKflag_layer1.left(63.50)
-    UKflag_layer1.forward(length + 5)
-    UKflag_layer1.left(26.50)
-    UKflag_layer1.forward((length / 10) + 1)
-    UKflag_layer1.end_fill()
 
-    UKflag_layer1.up()
-    UKflag_layer1.backward(length)
-    UKflag_layer1.left(26.6)
-    if length < 600:
-        UKflag_layer1.forward(length + 35.25)
-    else:
-        UKflag_layer1.forward(length + 70)
-    UKflag_layer1.down()
-    UKflag_layer1.begin_fill()
-    UKflag_layer1.fillcolor("white")
-    UKflag_layer1.left(180 - 26.50)
-    UKflag_layer1.forward(length / 10)
-    UKflag_layer1.left(26.50)
-    UKflag_layer1.forward(length + 5)
-    UKflag_layer1.left(63.50)
-    UKflag_layer1.forward((length / 20) - 1)
-    UKflag_layer1.left(90)
-    UKflag_layer1.forward(length / 10)
-    UKflag_layer1.left(26.50)
-    UKflag_layer1.forward(length + 3.31)
-    UKflag_layer1.left(63.50)
-    UKflag_layer1.forward(length / 20)
-    UKflag_layer1.end_fill()
+    uk_flag_layer1.forward(length/(60/67))
+    uk_flag_layer1.down()
+    uk_flag_layer1.left(180 - 63.50)
+    uk_flag_layer1.forward((length / 20))
+    uk_flag_layer1.left(63.50)
+    uk_flag_layer1.forward(length + 2)
+    uk_flag_layer1.left(26.50)
+    uk_flag_layer1.forward((length / 10))
+    uk_flag_layer1.left(90)
+    uk_flag_layer1.forward(length / 20)
+    uk_flag_layer1.left(63.50)
+    uk_flag_layer1.forward(length + 5)
+    uk_flag_layer1.left(26.50)
+    uk_flag_layer1.forward((length / 10) + 1)
+    uk_flag_layer1.end_fill()
 
-    if length == 600:
-        draw_UKflag_layer2(x, y, length)
-    elif length == 300:
-        draw_UKflag_layer2(x, y, length)
+    uk_flag_layer1.up()
+    uk_flag_layer1.backward(length)
+    uk_flag_layer1.left(26.6)
+    uk_flag_layer1.forward(length/(60/67))
+    uk_flag_layer1.down()
+    uk_flag_layer1.begin_fill()
+    uk_flag_layer1.fillcolor("white")
+    uk_flag_layer1.left(180 - 26.50)
+    uk_flag_layer1.forward((length / 10))
+    uk_flag_layer1.left(26.50)
+    uk_flag_layer1.forward(length + 5)
+    uk_flag_layer1.left(63.50)
+    uk_flag_layer1.forward((length / 10) - 1)
+    uk_flag_layer1.left(90)
+    uk_flag_layer1.forward(length / 10)
+    uk_flag_layer1.left(26.50)
+    uk_flag_layer1.forward(length + 3.31)
+    uk_flag_layer1.left(63.50)
+    uk_flag_layer1.forward(length / 20)
+    uk_flag_layer1.end_fill()
+    # This step is used to check the length of each flag and draw it proportionally.
+    if length >= 600:
+        draw_uk_flag_layer2(x, y, length)
+    elif length <= 300:
+        draw_uk_flag_layer2(x, y, length)
 
 
-def draw_star_7_side(size):
-    Star.begin_fill()
-    Star.color("white", "white")
-    Star.fillcolor("white")
-    Star.left(90)
-    Star.up()
-    Star.forward(size)
-    Star.down()
+def draw_star_7_side(size):  # this is the function to draw the start with 7 side of the UK flag
+    star_7_sides.begin_fill()
+    star_7_sides.color("white", "white")
+    star_7_sides.fillcolor("white")
+    star_7_sides.left(90)
+    star_7_sides.up()
+    star_7_sides.forward(size)
+    star_7_sides.down()
 
-    Star.right(166)
+    star_7_sides.right(166)
     for i in range(7):
-        Star.forward(size)
-        Star.left(101.25)
-        Star.forward(size)
-        Star.right(152.70)
-    Star.right(180 - 153)
-    Star.end_fill()
+        star_7_sides.forward(size)
+        star_7_sides.left(101.25)
+        star_7_sides.forward(size)
+        star_7_sides.right(152.70)
+    star_7_sides.right(180 - 153)
+    star_7_sides.end_fill()
 
 
-def draw_AUSflag(x, y):
-    AUSflag.goto(x - 300, y + 150)
-    AUSflag.right(90)
-    AUSflag.begin_fill()
-    AUSflag.fillcolor("darkblue")
+def draw_aus_flag(x, y, length):    # this is the function to draw the start with 7 side of the UK flag
+    aus_flag.goto(x - (length/2), y + (length/4))
+    aus_flag.right(90)
+    aus_flag.begin_fill()
+    aus_flag.fillcolor("darkblue")
     for i in range(2):
-        AUSflag.forward(300)
-        AUSflag.left(90)
-        AUSflag.forward(600)
-        AUSflag.left(90)
-    AUSflag.end_fill()
-    draw_UKflag(x, y, 300)
-    AUSflag.penup()
-    AUSflag.forward(151)
-    AUSflag.pendown()
-    AUSflag.pensize(2)
-    AUSflag.color("darkblue")
-    AUSflag.left(90)
-    AUSflag.forward(301)
-    AUSflag.left(90)
-    AUSflag.forward(150)
+        aus_flag.forward(length/2)
+        aus_flag.left(90)
+        aus_flag.forward(length)
+        aus_flag.left(90)
+    aus_flag.end_fill()
+    draw_uk_flag(x, y, length/2)
+    aus_flag.up()
+    aus_flag.forward((length/4)+1)
+    aus_flag.down()
+    aus_flag.pensize(2)
+    aus_flag.color("darkblue")
+    aus_flag.left(90)
+    aus_flag.forward((length/2)+1.25)
+    aus_flag.left(90)
+    aus_flag.forward(length/4)
 
-    Star.up()
-    Star.goto(x - 150, y - 60)
-    Star.down()
-    draw_star_7_side(30)
+    star_7_sides.up()
+    star_7_sides.goto((x - (length/4), y - (length/10)))
+    star_7_sides.down()
+    draw_star_7_side(length/20)
 
-    Star.up()
-    Star.goto(x + 150, y + 100)
-    Star.down()
-    draw_star_7_side(15)
+    position_list = [(x + (length/4), y + (length/6)),
+                     (x + (length/(600/145)), y - (length/6)),
+                     (x + (length/8), y + (length/(80/3))),
+                     (x + (length/(8/3)), y + (length/16))]
 
-    Star.up()
-    Star.goto(x + 145, y - 100)
-    Star.down()
-    draw_star_7_side(15)
-
-    Star.up()
-    Star.goto(x + 75, y + 45/2)
-    Star.down()
-    draw_star_7_side(15)
-
-    Star.up()
-    Star.goto(x + 225, y + 75/2)
-    Star.down()
-    draw_star_7_side(15)
+    for position in position_list:
+        star_7_sides.up()
+        star_7_sides.goto(position)
+        star_7_sides.down()
+        draw_star_7_side(length/40)
 
 # small star 5 sides
-    Star5.up()
-    Star5.goto(x + 180.5, y-10)
-    Star5.down()
-    Star5.begin_fill()
-    Star5.color("white", "white")
-    Star5.fillcolor("white")
-    Star5.left(90)
-    Star5.up()
-    Star5.forward(10)
-    Star5.down()
-    Star5.right(162)
+    star_5_sides.up()
+    star_5_sides.goto(x + (length/(10/3)), y-(length/60))
+    star_5_sides.down()
+    star_5_sides.begin_fill()
+    star_5_sides.color("white", "white")
+    star_5_sides.fillcolor("white")
+    star_5_sides.left(90)
+    star_5_sides.up()
+    star_5_sides.forward(length/60)
+    star_5_sides.down()
+    star_5_sides.right(162)
     for i in range(5):
-        Star5.forward(10)
-        Star5.left(72)
-        Star5.forward(10)
-        Star5.right(144)
-    Star5.end_fill()
+        star_5_sides.forward(length/60)
+        star_5_sides.left(72)
+        star_5_sides.forward(length/60)
+        star_5_sides.right(144)
+    star_5_sides.end_fill()
 
 
 def input_info():
@@ -284,9 +287,9 @@ while (n != "1") and (n != "2") and (n != "3"):
     input_info()
     n = input("Enter an option (1/2/3): ")
 if n == "1":
-    draw_UKflag(300, -150, 600)
+    draw_uk_flag(300, -150, 600)
 elif n == "2":
-    draw_AUSflag(0, 0)
+    draw_aus_flag(0, 0, 600)
 elif n == "3":
     print("Program exits. Have a nice day!")
     exit()
