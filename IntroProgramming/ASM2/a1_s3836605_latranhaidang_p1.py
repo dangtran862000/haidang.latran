@@ -4,7 +4,7 @@
 # Assignment: 1
 # Author: La Tran Hai Dang (s3836605)
 # Created date: 30/07/2020
-# Last modified date: dd/mm/yyyy
+# Last modified date: 11/08/2020
 
 import turtle
 window = turtle.Screen()
