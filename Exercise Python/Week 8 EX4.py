@@ -1,12 +1,14 @@
 list_integer = [1, 5, 10, 3, 7, 2, 9, 20, 2]
 
-
-def sum_even():
-    sum_element = 0
-    for i in list_integer:
-        if i % 2 == 0:
-            sum_element = sum_element + i
-    return sum_element
+new_list = []
 
 
-print(sum_even())
+def reverse():
+    a = 0
+    for i in range(0, len(list_integer)):
+        new_list.append(list_integer[(a-1)])
+        a = a - 1
+    return new_list
+
+
+print(reverse())
