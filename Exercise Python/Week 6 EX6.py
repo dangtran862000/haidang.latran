@@ -1,6 +1,14 @@
 n = str(input("Input"))
-a=n
+
+
 def delete_string(letter):
     for i in n:
         if i == str(letter):
-            n=n.replace("i")
+            new_str = n.replace(i, "")
+            return new_str
+        else:
+            continue
+
+
+if delete_string("a"):
+    print(delete_string("a"))
