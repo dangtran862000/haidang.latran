@@ -2,14 +2,13 @@ list_integer = [1, 5, 10, 3, 7, 2, 9, 20, 2]
 
 
 def maximum():
-    a = 0
+    count = 0
     for i in list_integer:
-        while i >= list_integer[a]:
-            a = a + 1
-            if a == len(list_integer):
-                print(i)
-                break
-        a = 0
+        while i >= list_integer[count]:
+            count = count + 1
+            if count == len(list_integer):
+                return i
+        count = 0
 
 
-maximum()
+print(maximum())

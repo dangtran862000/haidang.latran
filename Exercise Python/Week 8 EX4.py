@@ -4,10 +4,10 @@ new_list = []
 
 
 def reverse(list_integer):
-    a = 0
+    position = 0
     for i in range(0, len(list_integer)):
-        new_list.append(list_integer[(a-1)])
-        a = a - 1
+        new_list.append(list_integer[(position-1)])
+        position = position - 1
     return new_list
 
 
