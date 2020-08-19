@@ -32,4 +32,4 @@ def decrypt_message(message, alphabet_decrypt):
 
 
 print(encrypt_message(message, alphabet_encrypt))
-print(decrypt_message(message,alphabet_decrypt))
+print(decrypt_message(message, alphabet_decrypt))
